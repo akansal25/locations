@@ -24,7 +24,7 @@ public interface LocationRepository extends MongoRepository<Location, String> {
             @Param("updatedtimestamp") String updatedDateTime   //Find by updated timestamp
     );*/
 
-    @RequestMapping(path = "locations/{businessId}",method = RequestMethod.GET)
+    //@RequestMapping(path = "locations/{businessId}",method = RequestMethod.GET)
     List<Location> findByBusinessId(@Param("businessId") String businessId);         //find by business id of the location as URL parameter
 
 }
