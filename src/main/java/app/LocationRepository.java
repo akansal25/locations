@@ -2,13 +2,7 @@ package app;
 
 import entity.Location;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.data.rest.core.annotation.RestResource;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "locations", path = "locations")
 public interface LocationRepository extends MongoRepository<Location, String> {
@@ -24,7 +18,8 @@ public interface LocationRepository extends MongoRepository<Location, String> {
             @Param("updatedtimestamp") String updatedDateTime   //Find by updated timestamp
     );*/
 
-    //@RequestMapping(path = "locations/{businessId}",method = RequestMethod.GET)
-    List<Location> findByBusinessId(@Param("businessId") String businessId);         //find by business id of the location as URL parameter
+    Location findByBusinessId(String businessId);   //find by business id of the location as URL parameter
+
+    //GeoResults<Location> findByLocationNear(Point location, Distance distance);
 
 }
