@@ -4,6 +4,8 @@ package entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collection = "locations")
 public class Location {
 
@@ -14,7 +16,6 @@ public class Location {
     private String updatedBy;
     private Address address;
     private String createdBy;
-    private AtmDetail atmDetail;
     private String name;
     private String businessId;
     private String createdDateTime;
@@ -22,6 +23,10 @@ public class Location {
     private String status;
     private String updatedDateTime;
     private Geolocation geolocation;
+    private AtmDetail atmDetail;
+    private WealthDetail wealthDetail;
+    private BranchDetail branchDetail;
+    private List<Contact> contacts;
 
 
     public String getGeocodeTs() {
@@ -126,5 +131,29 @@ public class Location {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public WealthDetail getWealthDetail() {
+        return wealthDetail;
+    }
+
+    public void setWealthDetail(WealthDetail wealthDetail) {
+        this.wealthDetail = wealthDetail;
+    }
+
+    public BranchDetail getBranchDetail() {
+        return branchDetail;
+    }
+
+    public void setBranchDetail(BranchDetail branchDetail) {
+        this.branchDetail = branchDetail;
+    }
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
     }
 }
